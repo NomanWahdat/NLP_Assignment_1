@@ -1,0 +1,106 @@
+  1.   Extract Domain from URL  
+  -   Input:   `https://www.example.com/page`
+   -   Expected Output:   `example`
+
+   -   Input:   `http://subdomain.example.co.uk/path/to/page`
+   -   Expected Output:   `example`
+
+---
+
+  2.   Extract Dates  
+   -   Input:   `Today is 01/12/2022, and yesterday was 2022-01-12. We also met on 12-01-2022.`
+   -   Expected Output:  
+     ```
+     2022-01-12
+     2022-01-12
+     2022-01-12
+     ```
+
+   -   Input:   `My birthdays: 12-25-1995, 1990/07/15, 15-07-1990`
+   -   Expected Output:  
+     ```
+     1995-12-25
+     1990-07-15
+     1990-07-15
+     ```
+
+---
+
+  3.   Extract Prices  
+   -   Input:   `The prices are $100, €50, and ¥5000. Another price is $99.99.`
+   -   Expected Output:  
+     ```
+     ('$', '100')
+     ('€', '50')
+     ('¥', '5000')
+     ('$', '99.99')
+     ```
+
+   -   Input:   `Find prices like $20.50, €75, and ¥1234 in this text.`
+   -   Expected Output:  
+     ```
+     ('$', '20.50')
+     ('€', '75')
+     ('¥', '1234')
+     ```
+
+---
+
+  4.   Extract Hyperlinks  
+   -   Input:   `<a href="http://example.com">Example</a> and <a href="https://openai.com">OpenAI</a>`
+   -   Expected Output:  
+     ```
+     http://example.com
+     https://openai.com
+     ```
+
+   -   Input:   `<p>Link: <a href="http://testsite.org/page">Test Site</a> or <a href="https://mysite.com/home">My Site</a></p>`
+   -   Expected Output:  
+     ```
+     http://testsite.org/page
+     https://mysite.com/home
+     ```
+
+---
+
+  5.   Correct Spelling  
+   -   Input:   `I often type teh instead of the and recieve instead of receive.`
+   -   Expected Output:   `I often type the instead of the and receive instead of receive.`
+
+   -   Input:   `Please teh following details and recieve confirmation.`
+   -   Expected Output:   `Please the following details and receive confirmation.`
+
+---
+
+  6.   Extract Addresses  
+   -   Input:   `Our office is at 123 Main St, Apt 4B, and my friend's address is 456 Elm Avenue.`
+   -   Expected Output:  
+     ```
+     St
+     Avenue
+     ```
+
+   -   Input:   `Addresses: 789 Pine Rd and 1010 Maple Lane.`
+   -   Expected Output:  
+     ```
+     Rd
+     Lane
+     ```
+
+---
+
+  7.   Extract Hex Colors  
+   -   Input:   `Color codes are #FFAABB, #123456, and #ABCDEF.`
+   -   Expected Output:  
+     ```
+     FFAABB
+     123456
+     ABCDEF
+ 
+
+   -   Input:   `Use colors like #FF5733, #4B0082, and #000000 for styling.`
+   -   Expected Output:  
+  
+     FF5733
+     4B0082
+     000000
